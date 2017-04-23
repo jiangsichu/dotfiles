@@ -1,3 +1,5 @@
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home
+export PATH=$JAVA_HOME/bin:$PATH
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
@@ -11,8 +13,7 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 
 # Set theme
-POWERLEVEL9K_MODE='awesome-patched'
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+zplug "themes/clean", from:oh-my-zsh
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -26,17 +27,20 @@ fi
 zplug load --verbose
 
 # Aliases
-alias gt='gitk &'
+alias c='clear'
+alias q='exit'
+alias gk='gitk &'
 alias gu='git gui &'
 alias gs='git status'
-alias gf='git fetch --all'
+alias gg='git fetch'
 alias gb='git branch'
-alias gc='git checkout'
+alias go='git checkout'
 alias gp='git pull --rebase'
-alias ga='git add'
+alias ga='git add .'
 alias grb='git rebase'
-alias gpu='git push'
+alias gps='git push'
 alias grh='git reset --hard'
 alias grs='git reset --soft'
-
-cd ~/InventedWorld
+alias gcp='git cherry-pick'
+alias gc='git commit'
+alias gca='git commit --amend --no-edit'
